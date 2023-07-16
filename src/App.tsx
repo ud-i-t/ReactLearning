@@ -8,9 +8,13 @@ type Item = {
   title: string
 }
 
-function Child() {
+type Props = {
+  message: string
+}
+
+function Child(props:Props) {
   return(
-    <p>hogehoge</p>
+    <p>{props.message}</p>
   )
 }
 
@@ -30,7 +34,9 @@ function App() {
       <ul>
         { items.map((item: Item) => (<li key={item.id}>{item.title}</li>))}
       </ul>
-      <Child/>
+      <Child message='aaaaa'/>
+      <Child message='bbbb'/>
+      <Child message='hogehoge'/>
     </div>
   );
 }
