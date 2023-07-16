@@ -1,21 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Child from './components/child';
 import { title } from 'process';
 
 type Item = {
   id: number
   title: string
-}
-
-type Props = {
-  message: string
-}
-
-function Child(props:Props) {
-  return(
-    <p>{props.message}</p>
-  )
 }
 
 function App() {
@@ -35,8 +25,7 @@ function App() {
         { items.map((item: Item) => (<li key={item.id}>{item.title}</li>))}
       </ul>
       <Child message='aaaaa'/>
-      <Child message='bbbb'/>
-      <Child message='hogehoge'/>
+      <Child message='bbbbb'/>
     </div>
   );
 }
