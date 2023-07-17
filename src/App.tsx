@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import './App.css';
 import Child from './components/child';
 import { title } from 'process';
@@ -9,6 +9,8 @@ type Item = {
 }
 
 function App() {
+  const [count, setCount] = useState<number>(3)
+
   const items: Item[] = [
     {
       id:1,
@@ -19,13 +21,19 @@ function App() {
     }
   ]
 
+  const countUp = useCallback(() => {
+    setCount((prev) => prev + 1)
+  }, [] )
+
   return (
     <div className="App">
       <ul>
-        { items.map((item: Item) => (<li key={item.id}>{item.title}</li>))}
+        { items.map((item: Item) => (<li key={item.id}>{item.title}</li>)) }
       </ul>
       <Child message='aaaaa'/>
       <Child message='bbbbb'/>
+      <span>{count}</span>
+      <button onClick={countUp}>Click!</button>
     </div>
   );
 }
